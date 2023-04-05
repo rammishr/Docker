@@ -12,7 +12,8 @@ Run the commands in the play ground post cloning the repo.
 - [Docker Image](#Docker-Image)
 - [My Image](#My-Image)
 - [My Application](#My-Application)
-- [Scale using docker-compose](#Scale-using-docker-compose)
+- [Scale Using Docker Compose](#Scale-using-docker-compose)
+- [Scale Using Swarm](scale-using-swarm)
 
 ## Prerequisites
 
@@ -100,15 +101,27 @@ Docker file and required file present in repo under myimage directory. So, execu
 ## My Application
   You can open the host:3000 in the browser to see the output in following steps. 
   
-  + git clone –depth 1 https://github.com/rammishr/Docker.git
+  + git clone –-depth 1 https://github.com/rammishr/Docker.git
   + cd firstapp
   + docker image build –t firstapp .
   + docker run –p 3000:3000 firstapp
 
-## Scale using docker-compose
+## Scale Using Docker Compose
  The following example shows how to start app in association with DB.
-  + git clone –depth 1 https://github.com/rammishr/Docker.git
+  + git clone –-depth 1 https://github.com/rammishr/Docker.git
   + cd appWithDB
-  + Docker-compose up
+  + docker-compose up
 
-This project is licensed under the [name of license] license. See the [LICENSE](LICENSE) file for details.
+## Scale Using Swarm
+The following example shows runtime scaling of application
+  + git clone --depth 1 https://github.com/rammishr/Docker.git
+  + cd scale
+  + docker stack deploy -c docker-compose.yml mywebapp
+  + docker service scale mywebapp_web=3
+  + docker service ls
+  + docker container ps
+  + docker service scale mywebapp_web=2
+  + docker service ls
+  + docker container ps
+
+  
