@@ -1,0 +1,8 @@
+docker image build --tag myimage .
+docker image ls
+docker container run –it myimage
+  Validate that myfile.txt exist inside the container.
+
+Create the repository in the hub.
+docker tag myimage:latest <new-repo>:myimage
+docker push <new-repo>:myimage
