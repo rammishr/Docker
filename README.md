@@ -31,16 +31,6 @@ Run the commands in the play ground post cloning the repo.
   + It uses containers to isolate your application and its dependencies from the underlying system.
   + This makes it easy to deploy your application on different computers without worrying about compatibility issues.
 
-- What is behind docker!
-  + Docker uses containerization technology to create isolated environments for running applications. 
-    * LXC ( Linux Container)  libcontainer  aapC  runC
-  + Under the hood, Docker uses a combination of Linux kernel features, such as namespaces and cgroups
-    * Namespaces create private views ( process tree, mounts, network, users, IPC)
-    * cgroups provide resource management capability for these views. 
-  + Docker also uses a layered filesystem where each layer represents a change to the filesystem, to efficiently manage and store Docker images.
-    * OverlayFS, AUFs, ZFS, etc
-    * unionfs-fuse
-
 ## Run a Container
 
 - docker container run hello-world
@@ -67,11 +57,6 @@ Run the commands in the play ground post cloning the repo.
 - Commands to run
   + docker image ls
   + docker image inspect hello-world
-  + docker image rm alpine:latest
-  + docker image rm hello-world:latest
-  + docker image pull hello-world:latest
-  + docker image pull hello-world:linux
-  + docker image ls
 
 - Image life cyle
   + Define Dockerfile
@@ -89,33 +74,30 @@ Run the commands in the play ground post cloning the repo.
 ## My Image
 Docker file and required file present in repo under myimage directory. So, execute following set of commands.
   + git clone --depth 1 https://github.com/rammishr/Docker.git
-  + cd myimage
-  + docker image build --tag myimage .
+  + cd Docker/images
+  + docker image build -t myimage .
   + docker image ls
   + docker container run –it myimage
   + Validate that myfile.txt exist inside the container.
   + Create the repository in the hub.
-  + docker tag myimage:latest new-repo:myimage
-  + docker push new-repo:myimage
+  + docker tag myimage:latest <new-repo>:myimage
+  + docker push <new-repo>:myimage
 
 ## My Application
   You can open the host:3000 in the browser to see the output in following steps. 
-  
-  + git clone –-depth 1 https://github.com/rammishr/Docker.git
-  + cd firstapp
+  + cd ../firstapp
   + docker image build –t firstapp .
-  + docker run –p 3000:3000 firstapp
+  + docker run –p 3000:3000 firstapp&
 
 ## Scale Using Docker Compose
  The following example shows how to start app in association with DB.
-  + git clone –-depth 1 https://github.com/rammishr/Docker.git
-  + cd appWithDB
+  + cd ../appWithDB
   + docker-compose up
 
 ## Scale Using Swarm
-The following example shows runtime scaling of application
+The following example shows runtime scaling of application on swarm manager node.
   + git clone --depth 1 https://github.com/rammishr/Docker.git
-  + cd scale
+  + cd Docker/scale
   + docker stack deploy -c docker-compose.yml mywebapp
   + docker service scale mywebapp_web=3
   + docker service ls
