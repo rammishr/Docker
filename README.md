@@ -85,8 +85,8 @@ Docker file and required file present in repo under myimage directory. So, execu
 ## My Application
   You can open the host:3000 in the browser to see the output in following steps. 
   + cd ../firstapp
-  + docker image build –t firstapp .
-  + docker run –p 3000:3000 firstapp&
+  + docker image build -t firstapp .
+  + docker run -p 3000:3000 firstapp&
 
 ## Scale Using Docker Compose
  The following example shows how to start app in association with DB.
