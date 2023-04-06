@@ -73,11 +73,10 @@ Run the commands in the play ground post cloning the repo.
 
 ## My Image
 Docker file and required file present in repo under myimage directory. So, execute following set of commands.
-  + git clone --depth 1 https://github.com/rammishr/Docker.git
   + cd Docker/images
   + docker image build -t myimage .
   + docker image ls
-  + docker container run –it myimage
+  + docker container run -it myimage
   + Validate that myfile.txt exist inside the container.
   + Create the repository in the hub.
   + docker tag myimage:latest <new-repo>:myimage
