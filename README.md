@@ -17,7 +17,7 @@ Run the commands in the play ground post cloning the repo.
 
 ## Prerequisites
 
-- Register in docker hub
+- Register in docker hub (https://hub.docker.com/)
 - Go to https://labs.play-with-docker.com/ and login is using docker hub credentials
 - Click on Start
 - Select 3 managers and 2 worker templet from the wrench icon
