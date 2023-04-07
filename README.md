@@ -80,6 +80,7 @@ Docker file and required file present in repo under myimage directory. So, execu
   + Validate that myfile.txt exist inside the container.
   + Create the repository in the hub.
   + docker tag myimage:latest <new-repo>:myimage
+  + docker login -u <username>
   + docker push <new-repo>:myimage
 
 ## My Application
